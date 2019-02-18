@@ -88,6 +88,27 @@ Other key tech includes:
 
 This repository is based on a fork of [theGrue/jeopardy](https://github.com/theGrue/jeopardy) which is based on [btford/angular-socket-io-seed](https://github.com/btford/angular-socket-io-seed).
 
+## TODO
+
+### Must haves
+
+- [ ] Add possibility to add our own game rounds/question sets
+- [ ] Show player that pushed a button after a category was chosen
+
+## Awesome to have
+
+- [ ] Make Jeopardy Video (start screen) local available and usable without internet
+- [ ] Extend delay for showing final results
+- [ ] Add support for images and videos as question type
+
+### Nice to have
+
+- [ ] Make it playable with four people instead of three
+- [ ] Cancel button in admin interface don't drops the question in the frontend
+- [ ] Player names and points should be shown at the game dasboard
+- [ ] Is the thing usable without internet? It should be
+- [ ] Add documentation on how to use it, format to define questions and so on
+
 ## Disclaimer
 
 Borrowing this one from J! Archive, just in case.
