@@ -33,10 +33,9 @@ This app runs on [Node.js](https://nodejs.org/), make sure to install it before 
 
 1. Clone this repository to your computer.
 2. Open a command prompt in the root folder of the repository.
-3. Install dependencies from NPM and Bower, by running `npm install && bower install`
-4. Start the game server with `node app.js`
-5. Open http://localhost:3000/ for the host interface.
-6. Open http://localhost:3000/#/board for the clue board.
+3. `make run`
+4. Open http://localhost:3000/ for the host interface.
+5. Open http://localhost:3000/#/board for the clue board.
   * If you have a Chromecast, this is the tab you'll want to cast!
 
 ### Starting a Game
