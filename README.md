@@ -85,6 +85,10 @@ Other key tech includes:
 * [cheerio](https://github.com/cheeriojs/cheerio) for parsing J! Archive HTML pages.
 * [http-proxy](https://github.com/nodejitsu/node-http-proxy) for serving images from J! Archive.
 
+## Fork
+
+This repository is based on a fork of [theGrue/jeopardy](https://github.com/theGrue/jeopardy) which is based on [btford/angular-socket-io-seed](https://github.com/btford/angular-socket-io-seed).
+
 ## Disclaimer
 
 Borrowing this one from J! Archive, just in case.
