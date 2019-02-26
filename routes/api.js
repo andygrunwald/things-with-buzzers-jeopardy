@@ -6,8 +6,21 @@ var request = require('request');
 var cheerio = require('cheerio');
 var _ = require('lodash');
 
+function exportRawAPIResponse (req, res, next) {
+  return function (error, response, body) {
+    if (!error) {
+      res.type('json');
+      res.send(body);
+
+    } else {
+      next(error);
+    }
+  };
+}
+
 function exportIndex (req, res, next) {
   return function (error, response, html) {
+
     if (!error) {
       var $ = cheerio.load(html), result = [];
       $('#content table tr').each(function () {
@@ -16,6 +29,7 @@ function exportIndex (req, res, next) {
           if (i == 0) {
             var link = $('a', element).first().attr('href');
             link = link.substring(link.indexOf('=') + 1, link.length)
+
             row.push(link);
           }
           row.push($(element).text().trim());
@@ -78,14 +92,18 @@ function exportRound ($, context, r) {
 }
 
 exports.seasons = function (req, res, next) {
-  request('http://www.j-archive.com/listseasons.php', exportIndex(req, res, next));
+  //request('http://www.j-archive.com/listseasons.php', exportIndex(req, res, next));
+  request('http://localhost:8000/seasons', exportRawAPIResponse(req, res, next));
 };
 
 exports.season = function (req, res, next) {
-  request('http://www.j-archive.com/showseason.php?season=' + req.params.id, exportIndex(req, res, next));
+  //request('http://www.j-archive.com/showseason.php?season=' + req.params.id, exportIndex(req, res, next));
+  request('http://localhost:8000/season/' + req.params.id, exportRawAPIResponse(req, res, next));
 }
 
 exports.game = function (req, res, next) {
+  request('http://localhost:8000/game/' + req.params.id, exportRawAPIResponse(req, res, next));
+  /*
   request('http://www.j-archive.com/showgame.php?game_id=' + req.params.id, function (error, response, html) {
     if (!error) {
       var $ = cheerio.load(html);
@@ -122,4 +140,5 @@ exports.game = function (req, res, next) {
       next(error);
     }
   });
+  */
 }
