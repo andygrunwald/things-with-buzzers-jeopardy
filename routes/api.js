@@ -6,6 +6,10 @@ var request = require('request');
 var cheerio = require('cheerio');
 var _ = require('lodash');
 
+/**
+ * Export the raw API response from our own Jeopardy! Question Server here.
+ * See https://github.com/andygrunwald/jeopardy-game-server for more.
+ */
 function exportRawAPIResponse (req, res, next) {
   return function (error, response, body) {
     if (!error) {
@@ -18,6 +22,9 @@ function exportRawAPIResponse (req, res, next) {
   };
 }
 
+/**
+ * exportIndex is used when the J-Archive functionality is active.
+ */
 function exportIndex (req, res, next) {
   return function (error, response, html) {
 
@@ -46,6 +53,9 @@ function exportIndex (req, res, next) {
   };
 }
 
+/**
+ * exportRound is used when the J-Archive functionality is active.
+ */
 function exportRound ($, context, r) {
   var result = {};
   var round = $(r !== 'FJ' ? 'table.round' : 'table.final_round', context);
@@ -92,16 +102,35 @@ function exportRound ($, context, r) {
 }
 
 exports.seasons = function (req, res, next) {
-  //request('http://www.j-archive.com/listseasons.php', exportIndex(req, res, next));
+  /**
+   * We query our own Jeopardy! Question Server here.
+   * See https://github.com/andygrunwald/jeopardy-game-server for more.
+   *
+   * If you prefer to play a game from J-Archive.com, add this line below:
+   *  request('http://www.j-archive.com/listseasons.php', exportIndex(req, res, next));
+   */
   request('http://localhost:8000/seasons', exportRawAPIResponse(req, res, next));
 };
 
 exports.season = function (req, res, next) {
-  //request('http://www.j-archive.com/showseason.php?season=' + req.params.id, exportIndex(req, res, next));
+  /**
+   * We query our own Jeopardy! Question Server here.
+   * See https://github.com/andygrunwald/jeopardy-game-server for more.
+   *
+   * If you prefer to play a game from J-Archive.com, add this line below:
+   *  request('http://www.j-archive.com/showseason.php?season=' + req.params.id, exportIndex(req, res, next));
+   */
   request('http://localhost:8000/season/' + req.params.id, exportRawAPIResponse(req, res, next));
 }
 
 exports.game = function (req, res, next) {
+  /**
+   * We query our own Jeopardy! Question Server here.
+   * See https://github.com/andygrunwald/jeopardy-game-server for more.
+   *
+   * If you prefer to play a game from J-Archive.com, comment out the line below
+   * and comment the rest of the code in again.
+   */
   request('http://localhost:8000/game/' + req.params.id, exportRawAPIResponse(req, res, next));
   /*
   request('http://www.j-archive.com/showgame.php?game_id=' + req.params.id, function (error, response, html) {
