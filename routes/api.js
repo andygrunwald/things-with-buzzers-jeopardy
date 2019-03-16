@@ -109,7 +109,7 @@ exports.seasons = function (req, res, next) {
    * If you prefer to play a game from J-Archive.com, add this line below:
    *  request('http://www.j-archive.com/listseasons.php', exportIndex(req, res, next));
    */
-  request('http://localhost:8000/seasons', exportRawAPIResponse(req, res, next));
+  request('http://192.168.4.1:8000/seasons', exportRawAPIResponse(req, res, next));
 };
 
 exports.season = function (req, res, next) {
@@ -120,7 +120,7 @@ exports.season = function (req, res, next) {
    * If you prefer to play a game from J-Archive.com, add this line below:
    *  request('http://www.j-archive.com/showseason.php?season=' + req.params.id, exportIndex(req, res, next));
    */
-  request('http://localhost:8000/season/' + req.params.id, exportRawAPIResponse(req, res, next));
+  request('http://192.168.4.1:8000/season/' + req.params.id, exportRawAPIResponse(req, res, next));
 }
 
 exports.game = function (req, res, next) {
@@ -131,7 +131,7 @@ exports.game = function (req, res, next) {
    * If you prefer to play a game from J-Archive.com, comment out the line below
    * and comment the rest of the code in again.
    */
-  request('http://localhost:8000/game/' + req.params.id, exportRawAPIResponse(req, res, next));
+  request('http://192.168.4.1:8000/game/' + req.params.id, exportRawAPIResponse(req, res, next));
   /*
   request('http://www.j-archive.com/showgame.php?game_id=' + req.params.id, function (error, response, html) {
     if (!error) {

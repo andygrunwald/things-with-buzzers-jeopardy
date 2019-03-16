@@ -62,4 +62,5 @@ config(function($sceDelegateProvider) {
     // Allow loading from our assets domain. **.
     'http://localhost:8000/**',
     'http://192.168.4.1:8000',
+    'http://192.168.178.41:8000',
 ])});
