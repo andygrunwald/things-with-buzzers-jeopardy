@@ -54,4 +54,12 @@ config(function ($stateProvider, $urlRouterProvider) {
       templateUrl: 'partials/board',
       controller: 'BoardCtrl'
     });
-});
+}).
+config(function($sceDelegateProvider) {
+  $sceDelegateProvider.resourceUrlWhitelist([
+    // Allow same origin resource loads.
+    'self',
+    // Allow loading from our assets domain. **.
+    'http://localhost:8000/**',
+    'http://192.168.4.1:8000',
+])});
