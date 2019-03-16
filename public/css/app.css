@@ -117,3 +117,17 @@
 .panel {
   margin-bottom: 5px;
 }
+
+/**
+ * Only for buzzers
+ * Div to show if a button was hit or not.
+ */
+#button-hit {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 33.34%;
+  height: 33.34%;
+  z-index: 1000;
+  visibility: hidden;
+}

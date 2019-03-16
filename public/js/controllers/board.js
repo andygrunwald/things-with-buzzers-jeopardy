@@ -97,4 +97,63 @@ angular.module('myApp.controllers').
         modalInstance.close();
       }
     });
+
+    // Built websocket URL
+    // In our current setup, the buzzer server + the static
+    // webserver that serves this files, are running
+    // on the same server
+    var p = document.createElement('a');
+
+    p.href = window.location.href;
+    //var buzzerURL = "ws://" + p.host + "/socket";
+    var buzzerURL = "ws://192.168.178.41:8000/socket";
+    console.log("Connecting to Jeopardy Game Server websocket " + buzzerURL);
+
+    connectToWebSocket(buzzerURL);
   });
+
+var lastHit = 0;
+var currentTime;
+function connectToWebSocket(websocketServerLocation){
+  var ws = new WebSocket(websocketServerLocation);
+
+  ws.onopen = function(evt) {
+    console.log("WebSocket to Jeopardy Game Server: Open");
+  }
+  ws.onerror = function(evt) {
+    console.log("WebSocketto Jeopardy Game Server: Error -> " + evt.data);
+  }
+  ws.onclose = function(){
+    console.log("WebSocketto Jeopardy Game Server: Close ... Try to reconnect");
+    // Try to reconnect in 5 seconds
+    setTimeout(function(){connectToWebSocket(websocketServerLocation)}, 5000);
+  }
+
+  // When a new message from the WebSocket server comes in ...
+  // Mainly if a participant hits one of the buttons
+  ws.onmessage = function(evt) {
+
+    currentTime = Math.floor(Date.now() / 1000)
+    if (lastHit != 0 && (currentTime - lastHit) < 5) {
+      return;
+    }
+    lastHit = currentTime;
+
+    // The data that was sent by the server
+    var message = JSON.parse(evt.data);
+
+    var buttonColor = message.Color
+
+    var el = document.getElementById("button-hit");
+    var color = el.style.backgroundColor;
+
+    el.style.backgroundColor = buttonColor;
+    el.style.visibility = "visible";
+
+    setTimeout(function(){
+      el.style.backgroundColor = "none";
+      el.style.visibility = "hidden";
+    }, 5000);
+    console.log(buttonColor);
+  }
+}
