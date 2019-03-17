@@ -105,7 +105,8 @@ angular.module('myApp.controllers').
     var p = document.createElement('a');
 
     p.href = window.location.href;
-    var buzzerURL = "ws://" + p.host + "/socket";
+    //var buzzerURL = "ws://" + p.host + "/socket";
+    var buzzerURL = "ws://192.168.4.1:8000/socket";
     console.log("Connecting to Jeopardy Game Server websocket " + buzzerURL);
 
     connectToWebSocket(buzzerURL);
