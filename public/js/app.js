@@ -63,4 +63,5 @@ config(function($sceDelegateProvider) {
     'http://localhost:8000/**',
     'http://192.168.4.1:8000/**',
     'http://192.168.178.41:8000/**',
+    'http://192.168.4.19:8000/**',
 ])});
