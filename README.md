@@ -26,8 +26,8 @@ Have a look at
   - [Game Host Interface (Backend)](#game-host-interface-backend)
 - [Getting Started](#getting-started)
   - [Running the App](#running-the-app)
-  - [Starting a Game (TODO)](#starting-a-game-todo)
-  - [Playing the Game (TODO)](#playing-the-game-todo)
+  - [Starting a Game](#starting-a-game)
+  - [Playing the Game](#playing-the-game)
   - [Create your own game and answer/question set](#create-your-own-game-and-answerquestion-set)
   - [Activating the J! Archive games](#activating-the-j-archive-games)
 - [Known Issues](#known-issues)
@@ -92,31 +92,56 @@ TODO:
 - Explain that Nodjs server + websocket must run on the same server
 - Explain configuration of TWB_QUESTION_SERVER env var (npm install && TWB_QUESTION_SERVER="192.168.178.41:8000" node app.js)
 
-### Starting a Game (TODO)
+### Starting a Game
 
 Once the server is started, the board will play the Jeopardy! theme to get your contestants pumped up.
-The host can then select from any game on J! Archive, starting by season, then drilling down to individual games.
+The host can then select from any game (on J! Archive or your own created question set), starting by season, then drilling down to individual games.
 When the host chooses a game, a summary screen will appear, showing the categories for the game and how many clues are available for each category.
-I recommend finding a game with all the clues available for the best experience.
+We recommend finding a game with all the clues available for the best experience.
 
 Once the game has been chosen, the host enters the contestant names at the top of the screen and clicks the "Start Game" button.
 The music ends on the board and the Jeopardy! round will be displayed.
 
-### Playing the Game (TODO)
+### Playing the Game
 
-This is pretty easy for the contestants, the person in control of the board picks a clue, the host reads it, they buzz in to answer, repeat until no clues remain.
+This is pretty easy for the contestants, the person in control of the board picks a clue, the host reads it, they hit the buzzer to answer, repeat until no clues remain.
 
-If you've decided to step in to the shoes of Alex Trebek, you'll have to learn a bit. There's a pin next to the name of the player in control of the board. Call on them to pick a clue. Click on the clue, and it will pop up on your screen as well as the board. Read it to the contestants and them buzz in. Your screen will also have the answer, so be sure not to read that! If someone buzzes in and gets it wrong, click the X underneath their name. If they get it right, hit the checkmark. Hit the Submit button to end the clue and update scores. The control pin will automatically switch to whichever player answered correctly. If no one gets it right, control of the board does not change.
+If you've decided to step in to the shoes of [Alex Trebek](https://en.wikipedia.org/wiki/Alex_Trebek), you'll have to learn a bit.
 
-If you see a yellow "DD" next to a clue, it's a Daily Double! Don't start reading it right away! The contestant who got it needs to bid first. Make sure the correct name is highlighted, enter the contestant's bid, then hit the Confirm button. Now read the clue and record whether they get it correct.
+There's a pin next to the name of the player in control of the board.
+Call on them to pick a clue.
+Click on the clue, and it will pop up on your screen as well as the board.
+Read it to the contestants and they buzz to answer.
+Your screen will also have the answer, so be sure not to read that!
+If someone buzzes in and gets it wrong, click the X underneath their name.
+If they get it right, hit the checkmark.
+Hit the Submit button to end the clue and update scores.
+The control pin will automatically switch to whichever player answered correctly.
+If no one gets it right, control of the board does not change.
 
-If you see a red "TS" next to a clue, that means it was a Triple Stumper on the show. Nothing too significant, but sometimes it's nice to tell your contestants they're smarter than the folks on the show that day!
+If you see a yellow "DD" next to a clue, it's a Daily Double!
+Don't start reading it right away!
+The contestant who got it needs to bid first.
+Make sure the correct name is highlighted, enter the contestant's bid, then hit the Confirm button.
+Now read the clue and record whether they get it correct.
 
-When all the clues are gone, hit the "End Round" button. Between the Jeopardy! and Double Jeopardy! rounds, the contestants' scores will be displayed on the board, and control will be given to the player with the lowest score.
+If you see a red "TS" next to a clue, that means it was a Triple Stumper on the show.
+Nothing too significant, but sometimes it's nice to tell your contestants they're smarter than the folks on the show that day!
 
-When you reach Final Jeopardy!, you must enter the contestants' wagers before the question is displayed. If you really want to get serious, there will be a link to J! Archive's wagering suggestions page, automatically populated with your contestants' names and scores. If you're actually practicing for Jeopardy!, you'd better be learning how to wager properly. Confirm the wagers, read the question (the Think! music will automatically start playing), let your contestants write down their answers, then enter the results. Hit the "End Round" button one last time to display your contestants' final scores on the big screen, and you're all done! (This is dumb that I didn't just make it happen automatically, but oh well.)
+When all the clues are gone, hit the "End Round" button.
+Between the Jeopardy! and Double Jeopardy! rounds, the contestants' scores will be displayed on the board, and control will be given to the player with the lowest score.
 
-Let's just reiterate that, be sure to hit "End Round" at the end of Final Jeopardy! This will display the final scores, as well as save a log of the game's results to a file on your computer in the `games` folder. You are also given some convenient links to the J! Archive so you can see how the real game played out. You can then use the "Reset Game" button if you'd like to play again, or use your browser's Back button to go back and pick another game.
+When you reach Final Jeopardy!, you must enter the contestants' wagers before the question is displayed.
+
+If you really want to get serious, there will be a link to J! Archive's wagering suggestions page, automatically populated with your contestants' names and scores.
+If you're actually practicing for Jeopardy!, you'd better be learning how to wager properly.
+Confirm the wagers, read the question (the Think! music will automatically start playing), let your contestants write down their answers, then enter the results.
+Hit the "End Round" button one last time to display your contestants' final scores on the big screen, and you're all done!
+
+Let's just reiterate that, be sure to hit "End Round" at the end of Final Jeopardy!
+This will display the final scores, as well as save a log of the game's results to a file on your computer in the `games` folder.
+You are also given some convenient links to the J! Archive so you can see how the real game played out.
+You can then use the "Reset Game" button if you'd like to play again, or use your browser's Back button to go back and pick another game.
 
 ### Create your own game and answer/question set
 
