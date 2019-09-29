@@ -103,33 +103,54 @@ function exportRound ($, context, r) {
 
 exports.seasons = function (req, res, next) {
   /**
-   * We query our own Jeopardy! Question Server here.
-   * See https://github.com/andygrunwald/jeopardy-game-server for more.
+   * J! Archive-Activation
+   * ======================
+   * We query our own Jeopardy! Game and answer/question set here.
+   * See https://github.com/andygrunwald/things-with-buzzers-jeopardy for details.
    *
-   * If you prefer to play a game from J-Archive.com, add this line below:
-   *  request('http://www.j-archive.com/listseasons.php', exportIndex(req, res, next));
+   * If you prefer to play a game from J-Archive.com, add comments before the next line
+   *  // request('http://' + process.env.TWB_QUESTION_SERVER [...]
+   *
+   * and remove the comments around the line with the http://www.j-archive.com/ URL.
+   * Restart the game and you are good to go.
    */
   request('http://' + process.env.TWB_QUESTION_SERVER + '/seasons', exportRawAPIResponse(req, res, next));
+  /*
+  request('http://www.j-archive.com/listseasons.php', exportIndex(req, res, next));
+  */
 };
 
 exports.season = function (req, res, next) {
   /**
-   * We query our own Jeopardy! Question Server here.
-   * See https://github.com/andygrunwald/jeopardy-game-server for more.
+   * J! Archive-Activation
+   * ======================
+   * We query our own Jeopardy! Game and answer/question set here.
+   * See https://github.com/andygrunwald/things-with-buzzers-jeopardy for details.
    *
-   * If you prefer to play a game from J-Archive.com, add this line below:
-   *  request('http://www.j-archive.com/showseason.php?season=' + req.params.id, exportIndex(req, res, next));
+   * If you prefer to play a game from J-Archive.com, add comments before the next line
+   *  // request('http://' + process.env.TWB_QUESTION_SERVER [...]
+   *
+   * and remove the comments around the line with the http://www.j-archive.com/ URL.
+   * Restart the game and you are good to go.
    */
   request('http://' + process.env.TWB_QUESTION_SERVER + '/season/' + req.params.id, exportRawAPIResponse(req, res, next));
+  /*
+  request('http://www.j-archive.com/showseason.php?season=' + req.params.id, exportIndex(req, res, next));
+  */
 }
 
 exports.game = function (req, res, next) {
   /**
-   * We query our own Jeopardy! Question Server here.
-   * See https://github.com/andygrunwald/jeopardy-game-server for more.
+   * J! Archive-Activation
+   * ======================
+   * We query our own Jeopardy! Game and answer/question set here.
+   * See https://github.com/andygrunwald/things-with-buzzers-jeopardy for details.
    *
-   * If you prefer to play a game from J-Archive.com, comment out the line below
-   * and comment the rest of the code in again.
+   * If you prefer to play a game from J-Archive.com, add comments before the next line
+   *  // request('http://' + process.env.TWB_QUESTION_SERVER [...]
+   *
+   * and remove the comments around the rest of the code in this function.
+   * Restart the game and you are good to go.
    */
   request('http://' + process.env.TWB_QUESTION_SERVER + '/game/' + req.params.id, exportRawAPIResponse(req, res, next));
   /*
