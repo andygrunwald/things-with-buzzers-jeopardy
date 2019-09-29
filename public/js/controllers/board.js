@@ -5,7 +5,6 @@ angular.module('myApp.controllers').
     socket.emit('board:init');
 
     socket.on('board:init', function (data) {
-      console.log('board:init ' + !!data);
       if (data) {
         $scope.data = data.data;
         $scope.game = data.game;
@@ -40,7 +39,6 @@ angular.module('myApp.controllers').
     }
 
     socket.on('round:start', function (data) {
-      console.log('round:start');
       if (modalInstance) {
         modalInstance.close();
       }
@@ -86,45 +84,42 @@ angular.module('myApp.controllers').
     };
 
     socket.on('clue:start', function (data) {
-      console.log('clue:start ' + data);
       openModal(data);
     });
 
     socket.on('clue:end', function (data) {
-      console.log('clue:end');
       $scope.game = data;
       if (modalInstance) {
         modalInstance.close();
       }
     });
 
-    // Built websocket URL
-    // In our current setup, the buzzer server + the static
-    // webserver that serves this files, are running
-    // on the same server
-    var p = document.createElement('a');
-
-    p.href = window.location.href;
-    //var buzzerURL = "ws://" + p.host + "/stream";
-    var buzzerURL = "ws://192.168.4.1:8000/stream";
-    console.log("Connecting to Jeopardy Game Server websocket " + buzzerURL);
-
-    connectToWebSocket(buzzerURL);
+    // Build websocket URL
+    // In our current setup, the buzzer server + the jeopardy
+    // server are running on the same server.
+    // How we build the URL is far from perfect and not secure.
+    // But we assume this game runs in a safe and self-controlled
+    // environment.
+    // Means: Not intended for internet production traffic.
+    var wsURL = "ws://" + window.location.hostname + ":8080/stream"
+    console.log("Connecting to Jeopardy game websocket server " + wsURL);
+    connectToWebSocket(wsURL);
   });
 
 var lastHit = 0;
 var currentTime;
+
 function connectToWebSocket(websocketServerLocation){
   var ws = new WebSocket(websocketServerLocation);
 
   ws.onopen = function(evt) {
-    console.log("WebSocket to Jeopardy Game Server: Open");
+    console.log("WebSocket -> Jeopardy game server: Connection established");
   }
   ws.onerror = function(evt) {
-    console.log("WebSocket to Jeopardy Game Server: Error -> " + evt.data);
+    console.log("WebSocket -> Jeopardy game server: Error -> ", evt);
   }
   ws.onclose = function(){
-    console.log("WebSocket to Jeopardy Game Server: Close ... Try to reconnect");
+    console.log("WebSocket -> Jeopardy game server: Connection closed ... Try to reconnect");
     // Try to reconnect in 5 seconds
     setTimeout(function(){connectToWebSocket(websocketServerLocation)}, 5000);
   }
@@ -132,7 +127,6 @@ function connectToWebSocket(websocketServerLocation){
   // When a new message from the WebSocket server comes in ...
   // Mainly if a participant hits one of the buttons
   ws.onmessage = function(evt) {
-
     currentTime = Math.floor(Date.now() / 1000)
     if (lastHit != 0 && (currentTime - lastHit) < 5) {
       return;
@@ -154,6 +148,5 @@ function connectToWebSocket(websocketServerLocation){
       el.style.backgroundColor = "none";
       el.style.visibility = "hidden";
     }, 5000);
-    console.log(buttonColor);
   }
 }
