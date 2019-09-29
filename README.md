@@ -20,29 +20,31 @@ Have a look at
 
 ## Table of Contents
 
-- [Jeopardy! Practice Game](#jeopardy-practice-game)
+- [Features](#features)
 - [Screenshots](#screenshots)
   - [Game Board (Frontend)](#game-board-frontend)
   - [Game Host Interface (Backend)](#game-host-interface-backend)
-- [Getting Started (TODO)](#getting-started-todo)
-  - [Running the App (TODO)](#running-the-app-todo)
+- [Getting Started](#getting-started)
+  - [Running the App](#running-the-app)
   - [Starting a Game (TODO)](#starting-a-game-todo)
   - [Playing the Game (TODO)](#playing-the-game-todo)
-- [Known Issues (TODO)](#known-issues-todo)
-- [Technology (TODO)](#technology-todo)
+  - [Create your own game and answer/question set](#create-your-own-game-and-answerquestion-set)
+  - [Activating the J! Archive games](#activating-the-j-archive-games)
+- [Known Issues](#known-issues)
+  - [Only when using J! Archive](#only-when-using-j-archive)
+  - [Only when running offline](#only-when-running-offline)
 - [Fork and acknowledgments](#fork-and-acknowledgments)
-- [Disclaimer (TODO)](#disclaimer-todo)
+- [Disclaimer](#disclaimer)
 
-## Jeopardy! Practice Game
+## Features
 
-This app was hacked together over a couple of weekends to help practice for Jeopardy! It reads games from [J! Archive](http://www.j-archive.com/) and displays them via separate interfaces to the host and the contestants. Our typical setup for the practice games was:
-
-* Computer running this app, placed on host podium
-* Physical buzzer system (lots of schematics are available out there!)
-* A large screen to display the game board and clues to the contestants
-  * A Chromecast and the Google Cast extension for Chrome make this super easy!
-
-The objective was to run games as close to the real thing as possible, so other simulators out there that provided keyboard buzzing, typing in answers, or hiding the answer from the host were not suitable. Nor were apps that left out key features like Daily Doubles and Final Jeopardy.
+* Text support for answers
+* Audio support for answers
+* Video support for answers
+* Native support for _[things with buzzers: hardware buzzers](https://github.com/andygrunwald/things-with-buzzers-hardware)_ via _[things with buzzers: websocket](https://github.com/andygrunwald/things-with-buzzers-websocket)_
+* Possibility to run offline
+* Support for your own game and answer/question sets
+* Support for using the game and answer/question sets from [J! Archive](http://www.j-archive.com/) (_deactivated in favor of your own question sets_)
 
 ## Screenshots
 
@@ -74,24 +76,31 @@ Backend game question
   <img src="images/backend-game-question.png" title="Jeopardy! Backend game question" alt="Jeopardy! Backend game question">
 </p>
 
-## Getting Started (TODO)
+## Getting Started
 
-This app runs on [Node.js](https://nodejs.org/), make sure to install it before continuing. Also, if you don't have a buzzer, build one!
+This app runs on [Node.js](https://nodejs.org/), make sure to install it before continuing. Also, [if you don't have a buzzer, build one](https://github.com/andygrunwald/things-with-buzzers-hardware)!
 
-### Running the App (TODO)
+### Running the App
 
 1. Clone this repository to your computer.
 2. Open a command prompt in the root folder of the repository.
 3. `make run`
 4. Open http://localhost:3000/ for the host interface.
 5. Open http://localhost:3000/#/board for the clue board.
-  * If you have a Chromecast, this is the tab you'll want to cast!
+
+TODO:
+- Explain that Nodjs server + websocket must run on the same server
+- Explain configuration of TWB_QUESTION_SERVER env var (npm install && TWB_QUESTION_SERVER="192.168.178.41:8000" node app.js)
 
 ### Starting a Game (TODO)
 
-Once the server is started, the board will play the Jeopardy! theme to get your contestants pumped up. The host can then select from any game on J! Archive, starting by season, then drilling down to individual games. When the host chooses a game, a summary screen will appear, showing the categories for the game and how many clues are available for each category. I recommend finding a game with all the clues available for the best experience.
+Once the server is started, the board will play the Jeopardy! theme to get your contestants pumped up.
+The host can then select from any game on J! Archive, starting by season, then drilling down to individual games.
+When the host chooses a game, a summary screen will appear, showing the categories for the game and how many clues are available for each category.
+I recommend finding a game with all the clues available for the best experience.
 
-Once the game has been chosen, the host enters the contestant names at the top of the screen and clicks the "Start Game" button. The music ends on the board and the Jeopardy! round will be displayed.
+Once the game has been chosen, the host enters the contestant names at the top of the screen and clicks the "Start Game" button.
+The music ends on the board and the Jeopardy! round will be displayed.
 
 ### Playing the Game (TODO)
 
@@ -109,29 +118,36 @@ When you reach Final Jeopardy!, you must enter the contestants' wagers before th
 
 Let's just reiterate that, be sure to hit "End Round" at the end of Final Jeopardy! This will display the final scores, as well as save a log of the game's results to a file on your computer in the `games` folder. You are also given some convenient links to the J! Archive so you can see how the real game played out. You can then use the "Reset Game" button if you'd like to play again, or use your browser's Back button to go back and pick another game.
 
-## Known Issues (TODO)
+### Create your own game and answer/question set
 
-* Media is proxied from J! Archive, so if a clue had pictures, they will be shown on the game board. However, media frequently comes up missing on J! Archive. The links are there, but they don't go to anything. In other cases, the media linked is not an image but an MP3 audio clip or WMV video clip. The board is dumb and tries to display everything as an image, so these also do not appear correctly.
+TODO
 
-* Some bits of the interface are clunky and could be streamlined, such as picking the player for a Daily Double or having to manually end the round when all clues are answered.
+### Activating the J! Archive games
 
-* Contestants are only shown their scores between rounds, at Daily Doubles, and before Final Jeopardy! I just couldn't find any good board real estate to use on it, and on the real set, they're not very convenient to look at during the game anyhow.
+If you prefer to play the games from [J! Archive](http://www.j-archive.com/) instead of coming up with your own game and answer/question set, you need to modify the source code slighlty.
 
-* The order in which clues were chosen is not persisted to the saved game file.
+1. Open the [routes/api.js](./routes/api.js) file
+2. Search for `J! Archive-Activation`
+3. Add comments in front of the lines with `TWB_QUESTION_SERVER`
+4. Remove the comments of the lines with http://www.j-archive.com/
+5. Restart the game server
+6. Seasons and games from http://www.j-archive.com/ should appear now
 
+## Known Issues
+
+* You have to manually end the round when all clues are answered.
+* Contestants are only shown their scores between rounds, at Daily Doubles, and before Final Jeopardy! Be a good game master and announce them in between.
 * There is no easy way to adjust a contestant's score if the host makes a mistake. When necessary, we just added some scoring notes in the field with the contestant's name.
-
 * There is no way to un-answer a clue or un-end a round. Once they're gone, they're gone, unless the entire game is reset.
 
-## Technology (TODO)
+### Only when using J! Archive
 
-This project is based on the excellent [angular-socket-io-seed](https://github.com/btford/angular-socket-io-seed) template, so it can use Socket.io to push messages from the host interface, through the server, to the game board. There's no way I could have gotten it up and running quickly without this, this was my first project with sockets!
+* Media is proxied from J! Archive, so if a clue had pictures, they will be shown on the game board. However, media frequently comes up missing on J! Archive. The links are there, but they don't go to anything.
 
-Other key tech includes:
+### Only when running offline
 
-* [UI Bootstrap](https://angular-ui.github.io/bootstrap/) for modal dialogs and carousels.
-* [cheerio](https://github.com/cheeriojs/cheerio) for parsing J! Archive HTML pages.
-* [http-proxy](https://github.com/nodejitsu/node-http-proxy) for serving images from J! Archive.
+* The Jeopardy! theme played at the start is streamed from YouTube. We suggest you download the video beforehand and switch to the game once finished.
+* You have to use your own game and answer/question set OR downloading the J! Archive games beforehand.
 
 ## Fork and acknowledgments
 
@@ -140,7 +156,7 @@ This repository is a (modified) fork of [theGrue/jeopardy](https://github.com/th
 The main acknowledgments belongs to [theGrue](https://github.com/theGrue), [btford](https://github.com/btford) + contributors.
 Thanks a lot! You created a huge thing.
 
-## Disclaimer (TODO)
+## Disclaimer
 
 Borrowing this one from J! Archive, just in case.
 
