@@ -59,9 +59,10 @@ config(function($sceDelegateProvider) {
   $sceDelegateProvider.resourceUrlWhitelist([
     // Allow same origin resource loads.
     'self',
-    // Allow loading from our assets domain. **.
-    'http://localhost:8000/**',
-    'http://192.168.4.1:8000/**',
-    'http://192.168.178.41:8000/**',
-    'http://192.168.4.19:8000/**',
+    // Allow loading from every asset domain.
+    // This is not secure and far from perfect, but
+    // we assume this application runs in a safe
+    // and self-controlled environment.
+    // Means: Not used for production internet traffic.
+    '**',
 ])});
