@@ -1,4 +1,39 @@
-# Jeopardy! Practice Game
+# things with buzzers: Jeopardy!
+
+A [Jeopardy!](https://en.wikipedia.org/wiki/Jeopardy!) game frontend for _things with buzzers_.
+
+<p align="center">
+  <img src="images/frontend-board.png" title="Jeopardy! Game board" alt="Jeopardy! Game board">
+</p>
+
+PS: We didn't created this from scratch. This is a modified fork. See [Fork and acknowledgments](#fork-and-acknowledgments).
+
+<p align="center">
+  <img src="images/buzzer-setup-frontends.png" title="The finished product: Four buzzers, a Raspberry Pi incl. hat" alt="The finished product: Four buzzers, a Raspberry Pi incl. hat">
+</p>
+
+_You are missing the context, what this is all about?_
+Have a look at
+
+* [(2) things with buzzers: websocket](https://github.com/andygrunwald/things-with-buzzers-websocket)
+* [(3) things with buzzers: hardware](https://github.com/andygrunwald/things-with-buzzers-hardware)
+
+## Table of Contents
+
+- [Jeopardy! Practice Game](#jeopardy-practice-game)
+- [Screenshots](#screenshots)
+  - [Game Board (Frontend)](#game-board-frontend)
+  - [Game Host Interface (Backend)](#game-host-interface-backend)
+- [Getting Started (TODO)](#getting-started-todo)
+  - [Running the App (TODO)](#running-the-app-todo)
+  - [Starting a Game (TODO)](#starting-a-game-todo)
+  - [Playing the Game (TODO)](#playing-the-game-todo)
+- [Known Issues (TODO)](#known-issues-todo)
+- [Technology (TODO)](#technology-todo)
+- [Fork and acknowledgments](#fork-and-acknowledgments)
+- [Disclaimer (TODO)](#disclaimer-todo)
+
+## Jeopardy! Practice Game
 
 This app was hacked together over a couple of weekends to help practice for Jeopardy! It reads games from [J! Archive](http://www.j-archive.com/) and displays them via separate interfaces to the host and the contestants. Our typical setup for the practice games was:
 
@@ -11,25 +46,39 @@ The objective was to run games as close to the real thing as possible, so other 
 
 ## Screenshots
 
-### Game Board
+### Game Board (Frontend)
 
-![board1](/screens/board1.png?raw=true "Game Board")
+A single question
 
-![board2](/screens/board2.png?raw=true "Game Board")
+<p align="center">
+  <img src="images/frontend-question.png" title="Jeopardy! A single question" alt="Jeopardy! A single question">
+</p>
 
-### Host Interface
+### Game Host Interface (Backend)
 
-![host1](/screens/host1.png?raw=true "Host Interface")
+Backend game overview
 
-![host2](/screens/host2.png?raw=true "Host Interface")
+<p align="center">
+  <img src="images/backend-game-overview.png" title="Jeopardy! Backend game overview" alt="Jeopardy! Backend game overview">
+</p>
 
-![host3](/screens/host3.png?raw=true "Host Interface")
+Backend game question overview
 
-## Getting Started
+<p align="center">
+  <img src="images/backend-game-question-overview.png" title="Jeopardy! Backend game question overview" alt="Jeopardy! Backend game question overview">
+</p>
+
+Backend game question
+
+<p align="center">
+  <img src="images/backend-game-question.png" title="Jeopardy! Backend game question" alt="Jeopardy! Backend game question">
+</p>
+
+## Getting Started (TODO)
 
 This app runs on [Node.js](https://nodejs.org/), make sure to install it before continuing. Also, if you don't have a buzzer, build one!
 
-### Running the App
+### Running the App (TODO)
 
 1. Clone this repository to your computer.
 2. Open a command prompt in the root folder of the repository.
@@ -38,13 +87,13 @@ This app runs on [Node.js](https://nodejs.org/), make sure to install it before 
 5. Open http://localhost:3000/#/board for the clue board.
   * If you have a Chromecast, this is the tab you'll want to cast!
 
-### Starting a Game
+### Starting a Game (TODO)
 
 Once the server is started, the board will play the Jeopardy! theme to get your contestants pumped up. The host can then select from any game on J! Archive, starting by season, then drilling down to individual games. When the host chooses a game, a summary screen will appear, showing the categories for the game and how many clues are available for each category. I recommend finding a game with all the clues available for the best experience.
 
 Once the game has been chosen, the host enters the contestant names at the top of the screen and clicks the "Start Game" button. The music ends on the board and the Jeopardy! round will be displayed.
 
-### Playing the Game
+### Playing the Game (TODO)
 
 This is pretty easy for the contestants, the person in control of the board picks a clue, the host reads it, they buzz in to answer, repeat until no clues remain.
 
@@ -60,7 +109,7 @@ When you reach Final Jeopardy!, you must enter the contestants' wagers before th
 
 Let's just reiterate that, be sure to hit "End Round" at the end of Final Jeopardy! This will display the final scores, as well as save a log of the game's results to a file on your computer in the `games` folder. You are also given some convenient links to the J! Archive so you can see how the real game played out. You can then use the "Reset Game" button if you'd like to play again, or use your browser's Back button to go back and pick another game.
 
-## Known Issues
+## Known Issues (TODO)
 
 * Media is proxied from J! Archive, so if a clue had pictures, they will be shown on the game board. However, media frequently comes up missing on J! Archive. The links are there, but they don't go to anything. In other cases, the media linked is not an image but an MP3 audio clip or WMV video clip. The board is dumb and tries to display everything as an image, so these also do not appear correctly.
 
@@ -74,7 +123,7 @@ Let's just reiterate that, be sure to hit "End Round" at the end of Final Jeopar
 
 * There is no way to un-answer a clue or un-end a round. Once they're gone, they're gone, unless the entire game is reset.
 
-## Technology
+## Technology (TODO)
 
 This project is based on the excellent [angular-socket-io-seed](https://github.com/btford/angular-socket-io-seed) template, so it can use Socket.io to push messages from the host interface, through the server, to the game board. There's no way I could have gotten it up and running quickly without this, this was my first project with sockets!
 
@@ -84,11 +133,14 @@ Other key tech includes:
 * [cheerio](https://github.com/cheeriojs/cheerio) for parsing J! Archive HTML pages.
 * [http-proxy](https://github.com/nodejitsu/node-http-proxy) for serving images from J! Archive.
 
-## Fork
+## Fork and acknowledgments
 
-This repository is based on a fork of [theGrue/jeopardy](https://github.com/theGrue/jeopardy) which is based on [btford/angular-socket-io-seed](https://github.com/btford/angular-socket-io-seed).
+This repository is a (modified) fork of [theGrue/jeopardy](https://github.com/theGrue/jeopardy) which is based on [btford/angular-socket-io-seed](https://github.com/btford/angular-socket-io-seed).
 
-## Disclaimer
+The main acknowledgments belongs to [theGrue](https://github.com/theGrue), [btford](https://github.com/btford) + contributors.
+Thanks a lot! You created a huge thing.
+
+## Disclaimer (TODO)
 
 Borrowing this one from J! Archive, just in case.
 
