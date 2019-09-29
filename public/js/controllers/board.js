@@ -105,8 +105,8 @@ angular.module('myApp.controllers').
     var p = document.createElement('a');
 
     p.href = window.location.href;
-    //var buzzerURL = "ws://" + p.host + "/socket";
-    var buzzerURL = "ws://192.168.4.1:8000/socket";
+    //var buzzerURL = "ws://" + p.host + "/stream";
+    var buzzerURL = "ws://192.168.4.1:8000/stream";
     console.log("Connecting to Jeopardy Game Server websocket " + buzzerURL);
 
     connectToWebSocket(buzzerURL);
@@ -121,10 +121,10 @@ function connectToWebSocket(websocketServerLocation){
     console.log("WebSocket to Jeopardy Game Server: Open");
   }
   ws.onerror = function(evt) {
-    console.log("WebSocketto Jeopardy Game Server: Error -> " + evt.data);
+    console.log("WebSocket to Jeopardy Game Server: Error -> " + evt.data);
   }
   ws.onclose = function(){
-    console.log("WebSocketto Jeopardy Game Server: Close ... Try to reconnect");
+    console.log("WebSocket to Jeopardy Game Server: Close ... Try to reconnect");
     // Try to reconnect in 5 seconds
     setTimeout(function(){connectToWebSocket(websocketServerLocation)}, 5000);
   }
