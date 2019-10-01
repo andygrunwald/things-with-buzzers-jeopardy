@@ -1,6 +1,6 @@
 .PHONY: install
 install:
-	npm install
+	npm install && bower install
 
 .PHONY: run
 run: install
