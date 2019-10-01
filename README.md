@@ -6,7 +6,7 @@ A [Jeopardy!](https://en.wikipedia.org/wiki/Jeopardy!) game frontend for _things
   <img src="images/frontend-board.png" title="Jeopardy! Game board" alt="Jeopardy! Game board">
 </p>
 
-PS: We didn't created this from scratch. This is a modified fork. See [Fork and acknowledgments](#fork-and-acknowledgments).
+PS: We didn't create this from scratch. This is a modified fork. See [Fork and acknowledgments](#fork-and-acknowledgments).
 
 <p align="center">
   <img src="images/buzzer-setup-frontends.png" title="The finished product: Four buzzers, a Raspberry Pi incl. hat" alt="The finished product: Four buzzers, a Raspberry Pi incl. hat">
@@ -114,12 +114,12 @@ The music ends on the board and the Jeopardy! round will be displayed.
 
 This is pretty easy for the contestants, the person in control of the board picks a clue, the host reads it, they hit the buzzer to answer, repeat until no clues remain.
 
-If you've decided to step in to the shoes of [Alex Trebek](https://en.wikipedia.org/wiki/Alex_Trebek), you'll have to learn a bit.
+If you've decided to step into the shoes of [Alex Trebek](https://en.wikipedia.org/wiki/Alex_Trebek), you'll have to learn a bit.
 
 There's a pin next to the name of the player in control of the board.
 Call on them to pick a clue.
 Click on the clue, and it will pop up on your screen as well as the board.
-Read it to the contestants and they buzz to answer.
+Read it to the contestants, and they buzz to answer.
 Your screen will also have the answer, so be sure not to read that!
 If someone buzzes in and gets it wrong, click the X underneath their name.
 If they get it right, hit the checkmark.
@@ -146,10 +146,10 @@ If you're actually practicing for Jeopardy!, you'd better be learning how to wag
 Confirm the wagers, read the question (the Think! music will automatically start playing), let your contestants write down their answers, then enter the results.
 Hit the "End Round" button one last time to display your contestants' final scores on the big screen, and you're all done!
 
-Let's just reiterate that, be sure to hit "End Round" at the end of Final Jeopardy!
+Let's reiterate that, be sure to hit "End Round" at the end of Final Jeopardy!
 This will display the final scores, as well as save a log of the game's results to a file on your computer in the `games` folder.
 You are also given some convenient links to the J! Archive so you can see how the real game played out.
-You can then use the "Reset Game" button if you'd like to play again, or use your browser's Back button to go back and pick another game.
+You can then use the "Reset Game" button if you'd like to play again or use your browser's Back button to go back and pick another game.
 
 ### Create your own game and answer/question set
 
@@ -164,7 +164,7 @@ To the general structure:
 #### Adding a new _Season_
 
 1. Open the [`seasons.json`](./game-content/seasons.json).
-2. Add the following content (adjust it to you needs):
+2. Add the following content (adjust it to your needs):
 
    ```json
    {
@@ -241,13 +241,13 @@ To the general structure:
    - `category_J_<CAT_ID|1..6>`: A single category. Six categories can be placed there.
    - `clue_J_<CAT_ID>_<QUESTON_ID|1..5>`: A single question. `clue_J_1_2` will be in category 1 question 2
 
-This is how a normal game look like.
-Additionally you can add a Double Jeopardy! and Final Jeopardy! Round.
+This is how a regular game looks like.
+Additionally, you can add a Double Jeopardy! and Final Jeopardy! Round.
 
 ##### Double Jeopardy! Round
 
 Double Jeopardy! Rounds apply the same scheme as normal Categories and Questions.
-The difference is that in the JSON Key the `J` will be replaced with a `DJ`.
+The difference is that in the JSON Key, the `J` will be replaced with a `DJ`.
 Like
 
 ```json
@@ -323,7 +323,7 @@ Just add the following into the `my-new-funny-event-game-1.json` file:
 
 ### Activating the J! Archive games
 
-If you prefer to play the games from [J! Archive](http://www.j-archive.com/) instead of coming up with your own game and answer/question set, you need to modify the source code slighlty.
+If you prefer to play games from [J! Archive](http://www.j-archive.com/) instead of coming up with your own game and answer/question set, you need to modify the source code slightly.
 
 1. Open the [routes/api.js](./routes/api.js) file
 2. Search for `J! Archive-Activation`
@@ -334,14 +334,14 @@ If you prefer to play the games from [J! Archive](http://www.j-archive.com/) ins
 
 ## Known Issues
 
-* You have to manually end the round when all clues are answered.
+* You have to end the round when all clues are answered manually.
 * Contestants are only shown their scores between rounds, at Daily Doubles, and before Final Jeopardy! Be a good game master and announce them in between.
 * There is no easy way to adjust a contestant's score if the host makes a mistake. When necessary, we just added some scoring notes in the field with the contestant's name.
 * There is no way to un-answer a clue or un-end a round. Once they're gone, they're gone, unless the entire game is reset.
 
 ### Only when using J! Archive
 
-* Media is proxied from J! Archive, so if a clue had pictures, they will be shown on the game board. However, media frequently comes up missing on J! Archive. The links are there, but they don't go to anything.
+* Media is proxied from J! Archive, so if a clue had pictures, they would be shown on the game board. However, media frequently comes up missing on J! Archive. The links are there, but they don't go to anything.
 
 ### Only when running offline
 
