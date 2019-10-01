@@ -114,7 +114,7 @@ exports.seasons = function (req, res, next) {
    * and remove the comments around the line with the http://www.j-archive.com/ URL.
    * Restart the game and you are good to go.
    */
-  request('http://' + process.env.TWB_QUESTION_SERVER + '/seasons', exportRawAPIResponse(req, res, next));
+  request('http://' + process.env.TWB_QUESTION_SERVER + '/static/twb-jeopardy/seasons.json', exportRawAPIResponse(req, res, next));
   /*
   request('http://www.j-archive.com/listseasons.php', exportIndex(req, res, next));
   */
@@ -133,7 +133,7 @@ exports.season = function (req, res, next) {
    * and remove the comments around the line with the http://www.j-archive.com/ URL.
    * Restart the game and you are good to go.
    */
-  request('http://' + process.env.TWB_QUESTION_SERVER + '/season/' + req.params.id, exportRawAPIResponse(req, res, next));
+  request('http://' + process.env.TWB_QUESTION_SERVER + '/static/twb-jeopardy/' + req.params.id + '.json', exportRawAPIResponse(req, res, next));
   /*
   request('http://www.j-archive.com/showseason.php?season=' + req.params.id, exportIndex(req, res, next));
   */
@@ -152,7 +152,7 @@ exports.game = function (req, res, next) {
    * and remove the comments around the rest of the code in this function.
    * Restart the game and you are good to go.
    */
-  request('http://' + process.env.TWB_QUESTION_SERVER + '/game/' + req.params.id, exportRawAPIResponse(req, res, next));
+  request('http://' + process.env.TWB_QUESTION_SERVER + '/static/twb-jeopardy/' + req.params.id + '.json', exportRawAPIResponse(req, res, next));
   /*
   request('http://www.j-archive.com/showgame.php?game_id=' + req.params.id, function (error, response, html) {
     if (!error) {

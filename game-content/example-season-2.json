@@ -1,0 +1,20 @@
+[
+    {
+        "id": "example-season-2-game-3",
+        "name": "Example Season 2 - Game #3",
+        "description": "Game #3 of Season 2 - Blue edition",
+        "note": ""
+    },
+    {
+        "id": "example-season-2-game-2",
+        "name": "Example Season 2 - Game #2",
+        "description": "Game #2 of Season 2 - Red edition",
+        "note": ""
+    },
+    {
+        "id": "example-season-2-game-1",
+        "name": "Example Season 2 - Game #1",
+        "description": "Game #3 of Season 2 - Yellow edition",
+        "note": ""
+    }
+]

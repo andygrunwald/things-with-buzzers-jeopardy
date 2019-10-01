@@ -1,0 +1,14 @@
+[
+    {
+        "id": "example-season-2",
+        "name": "Example Season 2",
+        "description": "Another example season - Add how many you want",
+        "note": "2 games"
+    },
+    {
+        "id": "example-season-1",
+        "name": "Example Season 1",
+        "description": "Just an example season to show how this works",
+        "note": "4 games"
+    }
+]

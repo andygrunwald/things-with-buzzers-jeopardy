@@ -1,0 +1,238 @@
+{
+    "id": "example-season-2-game-1",
+    "game_title": "Example Season 2 - Game #1 - Tuesday, March 19, 2019",
+    "game_comments": "",
+    "game_complete": false,
+    "category_J_1": {
+        "category_name": "HEROS",
+        "category_comments": "",
+        "clue_count": 5
+    },
+    "category_J_2": {
+        "category_name": "HELLO WORLD",
+        "category_comments": "",
+        "clue_count": 5
+    },
+    "category_J_3": {
+        "category_name": "ABBREVIATIONS",
+        "category_comments": "",
+        "clue_count": 5
+    },
+    "category_J_4": {
+        "category_name": "HTTP",
+        "category_comments": "",
+        "clue_count": 5
+    },
+    "category_J_5": {
+        "category_name": "PERL",
+        "category_comments": "A category for brave ones",
+        "clue_count": 5
+    },
+    "category_J_6": {
+        "category_name": "THEMES",
+        "category_comments": "",
+        "clue_count": 5
+    },
+    "clue_J_1_1": {
+        "id": "20190319111",
+        "clue_html": "",
+        "clue_text": "",
+        "correct_response": "Batman",
+        "media": [
+            "http://localhost:8080/static/twb-jeopardy/example-season-2-game-1/batman.png"
+        ]
+    },
+    "clue_J_2_1": {
+        "id": "20190319121",
+        "clue_html": "document.write('Hello, World!');",
+        "clue_text": "document.write('Hello, World!');",
+        "correct_response": "JavaScript"
+    },
+    "clue_J_3_1": {
+        "id": "20190319131",
+        "clue_html": "WTF",
+        "clue_text": "WTF",
+        "correct_response": "What The Fuck"
+    },
+    "clue_J_4_1": {
+        "id": "20190319141",
+        "clue_html": "404",
+        "clue_text": "404",
+        "correct_response": "File not found"
+    },
+    "clue_J_5_1": {
+        "id": "20190319151",
+        "clue_html": "$@",
+        "clue_text": "$@",
+        "correct_response": "the last-raised exception"
+    },
+    "clue_J_6_1": {
+        "id": "20190319161",
+        "clue_html": "",
+        "clue_text": "",
+        "correct_response": "Tetris",
+        "audio": "http://localhost:8080/static/twb-jeopardy/example-season-2-game-1/tetris.mp3"
+    },
+    "clue_J_1_2": {
+        "id": "20190319112",
+        "clue_html": "",
+        "clue_text": "",
+        "correct_response": "Superman",
+        "media": [
+            "http://localhost:8080/static/twb-jeopardy/example-season-2-game-1/superman.png"
+        ]
+    },
+    "clue_J_2_2": {
+        "id": "20190319122",
+        "clue_html": "puts 'Hello, World!'",
+        "clue_text": "puts 'Hello, World!'",
+        "daily_double": true,
+        "correct_response": "Ruby or TCL"
+    },
+    "clue_J_3_2": {
+        "id": "20190319132",
+        "clue_html": "FTW",
+        "clue_text": "FTW",
+        "correct_response": "For The Win"
+    },
+    "clue_J_4_2": {
+        "id": "20190319142",
+        "clue_html": "301",
+        "clue_text": "301",
+        "correct_response": "Redirect - Moved Permanently"
+    },
+    "clue_J_5_2": {
+        "id": "20190319152",
+        "clue_html": "$_",
+        "clue_text": "$_",
+        "correct_response": "the stealth variable, always used and never seen"
+    },
+    "clue_J_6_2": {
+        "id": "20190319162",
+        "clue_html": "",
+        "clue_text": "",
+        "correct_response": "Super Mario World",
+        "audio": "http://localhost:8080/static/twb-jeopardy/example-season-2-game-1/super-mario-world.mp3"
+    },
+    "clue_J_1_3": {
+        "id": "20190319113",
+        "clue_html": "",
+        "clue_text": "",
+        "correct_response": "Wonder Woman",
+        "media": [
+            "http://localhost:8080/static/twb-jeopardy/example-season-2-game-1/wonder_woman.jpg"
+        ]
+    },
+    "clue_J_2_3": {
+        "id": "20190319123",
+        "clue_html": "CAN HAS STDIO?<br />VISIBLE &quot;Hello world!&quot;",
+        "clue_text": "CAN HAS STDIO? VISIBLE \"Hello world!\"",
+        "correct_response": "LOLCODE"
+    },
+    "clue_J_3_3": {
+        "id": "20190319133",
+        "clue_html": "EOF",
+        "clue_text": "EOF",
+        "correct_response": "End Of File"
+    },
+    "clue_J_4_3": {
+        "id": "20190319143",
+        "clue_html": "500",
+        "clue_text": "500",
+        "correct_response": "Internal Server Error"
+    },
+    "clue_J_5_3": {
+        "id": "20190319153",
+        "clue_html": "$}",
+        "clue_text": "$}",
+        "correct_response": "nothing at all, oddly enough!"
+    },
+    "clue_J_6_3": {
+        "id": "20190319163",
+        "clue_html": "",
+        "clue_text": "",
+        "correct_response": "Pac Man (Arcade)",
+        "audio": "http://localhost:8080/static/twb-jeopardy/example-season-2-game-1/pac-man-arcade.mp3"
+    },
+    "clue_J_1_4": {
+        "id": "20190319114",
+        "clue_html": "",
+        "clue_text": "",
+        "correct_response": "Green Lantern",
+        "media": [
+            "http://localhost:8080/static/twb-jeopardy/example-season-2-game-1/green_lantern.jpg"
+        ]
+    },
+    "clue_J_2_4": {
+        "id": "20190319124",
+        "clue_html": "DISPLAY 'HELLO, WORLD!'",
+        "clue_text": "DISPLAY 'HELLO, WORLD!'",
+        "correct_response": "COBOL"
+    },
+    "clue_J_3_4": {
+        "id": "20190319134",
+        "clue_html": "ROFL",
+        "clue_text": "ROFL",
+        "correct_response": "Rolling On the Floor Laughing"
+    },
+    "clue_J_4_4": {
+        "id": "20190319144",
+        "clue_html": "418",
+        "daily_double": true,
+        "clue_text": "418",
+        "correct_response": "Teapot"
+    },
+    "clue_J_5_4": {
+        "id": "20190319154",
+        "clue_html": "%!˸(MISSING)˸",
+        "clue_text": "%!˸(MISSING)˸",
+        "correct_response": "the symbol table"
+    },
+    "clue_J_6_4": {
+        "id": "20190319164",
+        "clue_html": "",
+        "clue_text": "",
+        "correct_response": "Crash Bandicoot",
+        "audio": "http://localhost:8080/static/twb-jeopardy/example-season-2-game-1/crash-bandicoot-ps1.mp3"
+    },
+    "clue_J_1_5": {
+        "id": "20190319115",
+        "clue_html": "",
+        "clue_text": "",
+        "correct_response": "Shazam",
+        "media": [
+            "http://localhost:8080/static/twb-jeopardy/example-season-2-game-1/shazam.png"
+        ]
+    },
+    "clue_J_2_5": {
+        "id": "20190319125",
+        "clue_html": "h",
+        "clue_text": "h",
+        "correct_response": "Hello"
+    },
+    "clue_J_3_5": {
+        "id": "20190319135",
+        "clue_html": "PEBCAC",
+        "clue_text": "PEBCAC",
+        "correct_response": "Problem Exists Between Chair And Computer"
+    },
+    "clue_J_4_5": {
+        "id": "20190319145",
+        "clue_html": "420",
+        "clue_text": "420",
+        "correct_response": "Enhance Your Calm"
+    },
+    "clue_J_5_5": {
+        "id": "20190319155",
+        "clue_html": "$#",
+        "clue_text": "$#",
+        "correct_response": "not a comment!"
+    },
+    "clue_J_6_5": {
+        "id": "20190319165",
+        "clue_html": "",
+        "clue_text": "",
+        "correct_response": "Valve Theme (Half-Life / Counter Strike)",
+        "audio": "http://localhost:8080/static/twb-jeopardy/example-season-2-game-1/valve-theme-hazardous-environments.mp3"
+    }
+}
