@@ -26,7 +26,6 @@ Have a look at
   - [Game Host Interface (Backend)](#game-host-interface-backend)
 - [Getting Started](#getting-started)
   - [Running the App (locally)](#running-the-app-locally)
-  - [Running the App (with Docker) => TODO](#running-the-app-with-docker--todo)
   - [Starting a Game](#starting-a-game)
   - [Playing the Game](#playing-the-game)
   - [Create your own game and answer/question set](#create-your-own-game-and-answerquestion-set)
@@ -130,10 +129,6 @@ _Important_: The [twb-jeopardy](https://github.com/andygrunwald/things-with-buzz
 
 It is required to set the _TWB_QUESTION_SERVER_ environment variable.
 This the IP + Port combination of the [twb-websocket](https://github.com/andygrunwald/things-with-buzzers-websocket) server.
-
-### Running the App (with Docker) => TODO
-
-TODO
 
 ### Starting a Game
 
