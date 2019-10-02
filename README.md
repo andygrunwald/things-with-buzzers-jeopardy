@@ -25,7 +25,8 @@ Have a look at
   - [Game Board (Frontend)](#game-board-frontend)
   - [Game Host Interface (Backend)](#game-host-interface-backend)
 - [Getting Started](#getting-started)
-  - [Running the App](#running-the-app)
+  - [Running the App (locally)](#running-the-app-locally)
+  - [Running the App (with Docker) => TODO](#running-the-app-with-docker--todo)
   - [Starting a Game](#starting-a-game)
   - [Playing the Game](#playing-the-game)
   - [Create your own game and answer/question set](#create-your-own-game-and-answerquestion-set)
@@ -85,20 +86,54 @@ Backend game question
 
 ## Getting Started
 
-This app runs on [Node.js](https://nodejs.org/), make sure to install it before continuing. Also, [if you don't have a buzzer, build one](https://github.com/andygrunwald/things-with-buzzers-hardware)!
+[If you don't have a buzzer, build one](https://github.com/andygrunwald/things-with-buzzers-hardware)!
 
-### Running the App
+Here we run the Jeopardy! app with our example question set from the [`game-content`](./game-content/) folder.
+Be aware that there is only one full game available.
+Hence the clickpath is important:
 
-1. Clone this repository to your computer.
-2. Open a command prompt in the root folder of the repository.
-3. `make run`
-4. Open http://localhost:3000/ for the host interface.
-5. Open http://localhost:3000/#/board for the clue board.
+  Example Season 2 -> Example Season 2 - Game #1
 
-TODO:
-- Explain that Nodjs server + websocket must run on the same server
-- Explain configuration of TWB_QUESTION_SERVER env var (npm install && TWB_QUESTION_SERVER="192.168.178.41:8000" node app.js)
-- Explain how to get this running with your own question set an the websocket server + URL
+### Running the App (locally)
+
+This app runs on [Node.js](https://nodejs.org/), make sure to install it before continuing.
+Furthermore, we run this game in combination with [twb-websocket](https://github.com/andygrunwald/things-with-buzzers-websocket).
+
+_Important_: The [twb-jeopardy](https://github.com/andygrunwald/things-with-buzzers-jeopardy) app and the [twb-websocket](https://github.com/andygrunwald/things-with-buzzers-websocket) must run on the same server.
+
+1. Clone the [twb-jeopardy](https://github.com/andygrunwald/things-with-buzzers-jeopardy) repository to your computer
+  ```sh
+  $ git clone git@github.com:andygrunwald/things-with-buzzers-jeopardy.git
+  $ cd things-with-buzzers-jeopardy
+  ```
+2. Download, install and start [twb-websocket](https://github.com/andygrunwald/things-with-buzzers-websocket)
+3. Copy the game questions from the [game-content](https://github.com/andygrunwald/things-with-buzzers-jeopardy/tree/master/game-content) folder into the `static/twb-jeopardy/` folder of [twb-websocket](https://github.com/andygrunwald/things-with-buzzers-websocket):
+  ```sh
+  $ mkdir -p <folder-of-twb-websocket>/static/twb-jeopardy/
+  $ cp game-content/* <folder-of-twb-websocket>/static/twb-jeopardy/
+  ```
+
+  As an alternative, you can symlink it:
+  ```sh
+  $ ln -s <folder-of-twb-jeopardy>/game-content <folder-of-twb-websocket>/static/twb-jeopardy/
+  ```
+4. Install dependencies:
+  ```sh
+  $ npm install && bower install
+  ```
+5. Start the app _things with buzzers: Jeopardy!_ app:
+  ```sh
+  $ TWB_QUESTION_SERVER="localhost:8080" node app.js
+  ```
+5. Open http://localhost:3000/ for the host interface.
+6. Open http://localhost:3000/#/board for the clue board.
+
+It is required to set the _TWB_QUESTION_SERVER_ environment variable.
+This the IP + Port combination of the [twb-websocket](https://github.com/andygrunwald/things-with-buzzers-websocket) server.
+
+### Running the App (with Docker) => TODO
+
+TODO
 
 ### Starting a Game
 
