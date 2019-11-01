@@ -15,6 +15,7 @@ PS: We didn't create this from scratch. This is a modified fork. See [Fork and a
 _You are missing the context, what this is all about?_
 Have a look at
 
+* [(1) things with buzzers: sports competition frontend](https://github.com/andygrunwald/things-with-buzzers-sports-competition)
 * [(2) things with buzzers: websocket](https://github.com/andygrunwald/things-with-buzzers-websocket)
 * [(3) things with buzzers: hardware](https://github.com/andygrunwald/things-with-buzzers-hardware)
 
