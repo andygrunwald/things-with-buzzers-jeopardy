@@ -2,6 +2,8 @@
 
 A [Jeopardy!](https://en.wikipedia.org/wiki/Jeopardy!) game frontend for _things with buzzers_.
 
+> For more context, we recommend reading [things with buzzers: building them](https://andygrunwald.com/blog/things-with-buzzers-building-them/) and [things with buzzers: playing Jeopardy!](https://andygrunwald.com/blog/things-with-buzzers-playing-jeopardy/).
+
 <p align="center">
   <img src="images/frontend-board.png" title="Jeopardy! Game board" alt="Jeopardy! Game board">
 </p>
