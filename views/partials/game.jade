@@ -6,7 +6,7 @@ nav.navbar.navbar-default.navbar-fixed-top
         span(ng-show='game.round == "FJ"') Final
         |  Jeopardy!
     .collapse.navbar-collapse
-      each i in [1, 2, 3]
+      each i in [1, 2, 3, 4, 5]
         form.navbar-form.navbar-left
           .form-group
             .input-group
@@ -77,7 +77,7 @@ nav.navbar.navbar-default.navbar-fixed-top
         |  {{data.category_FJ_1.category_comments}}
       .panel-body(ng-show='!game.clue_FJ')
         .row
-          each i in [1, 2, 3]
+          each i in [1, 2, 3, 4, 5]
             .col-md-4.text-center
               h4 {{ game.player_#{i}.name || 'Player #{i}' }}
               .input-group

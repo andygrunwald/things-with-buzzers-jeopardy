@@ -9,6 +9,8 @@ angular.module('myApp.controllers').
       player_1: {},
       player_2: {},
       player_3: {},
+      player_4: {},
+      player_5: {},
       dd_player: 'player_1'
     };
 
@@ -21,17 +23,11 @@ angular.module('myApp.controllers').
       $scope.result[key][correct ? 'wrong' : 'right'] = undefined;
 
       if ($scope.result[key].right && response.id !== 'clue_FJ') {
-        if (num === 1) {
-          $scope.result.player_2.right = undefined;
-          $scope.result.player_3.right = undefined;
-        }
-        else if (num === 2) {
-          $scope.result.player_1.right = undefined;
-          $scope.result.player_3.right = undefined;
-        }
-        else if (num === 3) {
-          $scope.result.player_1.right = undefined;
-          $scope.result.player_2.right = undefined;
+        for(var i = 1; i <= 5; i++) {
+          if(num !== i) {
+            var resultKey = 'player_' + i;
+            $scope.result[resultKey].right = undefined;
+          }
         }
       }
     };

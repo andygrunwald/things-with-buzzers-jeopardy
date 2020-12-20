@@ -20,15 +20,22 @@ module.exports = function (io) {
       console.log('round:end ' + data.round);
       if (data.round === 'J') {
         data.round = 'DJ';
-        if (data.player_1.score < data.player_2.score && data.player_1.score < data.player_3.score) {
-          data.control_player = 'player_1';
+        
+        // Find the lowest scoring player
+        var lowestScore = 0;
+        for(var i = 1; i <= 5; i++) {
+          var key = "player_" + i;
+          if(i === 1) {
+            data.control_player = key;
+            lowestScore = data[key].score;
+          } else if(key in data) {
+            if(data[key].score < lowestScore) {
+              data.control_player = key;
+              lowestScore = data[key].score;
+            }
+          }
         }
-        else if (data.player_2.score < data.player_1.score && data.player_2.score < data.player_3.score) {
-          data.control_player = 'player_2';
-        }
-        else if (data.player_3.score < data.player_1.score && data.player_3.score < data.player_2.score) {
-          data.control_player = 'player_3';
-        }
+
       }
       else if (data.round === 'DJ') {
         data.round = 'FJ';
