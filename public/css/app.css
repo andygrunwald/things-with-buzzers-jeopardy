@@ -20,8 +20,8 @@ body {
 
 .board-player-scores {
   height: 4%;
-  font-size: 2em;
-  padding-top: 10px;
+  font-size: 2.2vh;
+  padding-top: 0.5vh;
 }
 
 
