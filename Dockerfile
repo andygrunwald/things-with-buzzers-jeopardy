@@ -1,6 +1,10 @@
-FROM node:10
+FROM node:lts-alpine3.12
 
-WORKDIR /usr/src/app
+WORKDIR /app
+
+# Install git
+# bower needs it
+RUN apk --no-cache add git
 
 # Install Bower
 RUN npm install -g bower
@@ -8,7 +12,10 @@ RUN npm install -g bower
 # Install app dependencies
 COPY package*.json ./
 RUN npm install
-RUN bower install
+
+COPY .bowerrc ./
+COPY bower.json ./
+RUN bower install --allow-root
 
 COPY . .
 
