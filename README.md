@@ -29,6 +29,7 @@ Have a look at
   - [Game Host Interface (Backend)](#game-host-interface-backend)
 - [Getting Started](#getting-started)
   - [Running the App (locally)](#running-the-app-locally)
+  - [Running the App (Docker)](#running-the-app-locally)
   - [Starting a Game](#starting-a-game)
   - [Playing the Game](#playing-the-game)
   - [Create your own game and answer/question set](#create-your-own-game-and-answerquestion-set)
@@ -127,11 +128,42 @@ _Important_: The [twb-jeopardy](https://github.com/andygrunwald/things-with-buzz
   ```sh
   $ TWB_QUESTION_SERVER="localhost:8080" node app.js
   ```
-5. Open http://localhost:3000/ for the host interface.
-6. Open http://localhost:3000/#/board for the clue board.
+6. Open http://localhost:3000/ for the host interface.
+7. Open http://localhost:3000/#/board for the clue board.
 
 It is required to set the _TWB_QUESTION_SERVER_ environment variable.
 This the IP + Port combination of the [twb-websocket](https://github.com/andygrunwald/things-with-buzzers-websocket) server.
+
+### Running the App (Docker)
+
+You can also run this Game inside a Docker container.
+
+1. Clone the [twb-jeopardy](https://github.com/andygrunwald/things-with-buzzers-jeopardy) repository to your computer
+  ```sh
+  $ git clone git@github.com:andygrunwald/things-with-buzzers-jeopardy.git
+  $ cd things-with-buzzers-jeopardy
+  ```
+2. Download, install and start [twb-websocket](https://github.com/andygrunwald/things-with-buzzers-websocket)
+3. Copy the game questions from the [game-content](https://github.com/andygrunwald/things-with-buzzers-jeopardy/tree/master/game-content) folder into the `static/twb-jeopardy/` folder of [twb-websocket](https://github.com/andygrunwald/things-with-buzzers-websocket):
+  ```sh
+  $ mkdir -p <folder-of-twb-websocket>/static/twb-jeopardy/
+  $ cp game-content/* <folder-of-twb-websocket>/static/twb-jeopardy/
+  ```
+
+  As an alternative, you can symlink it:
+  ```sh
+  $ ln -s <folder-of-twb-jeopardy>/game-content <folder-of-twb-websocket>/static/twb-jeopardy/
+  ```
+4. Build and start the container:
+  ```sh
+  $ make run-docker
+  ```
+5. Open http://<Docker-HOST>:3000/ for the host interface.
+6. Open http://<Docker-HOST>:3000/#/board for the clue board.
+
+The _TWB_QUESTION_SERVER_ environment variable is automatically set to `host.docker.internal:8080`.
+This the IP + Port combination of the [twb-websocket](https://github.com/andygrunwald/things-with-buzzers-websocket) server.
+If you want to override it, execute this command in Step 4: `TWB_QUESTION_SERVER=<YOUR HOST>:8080 make run-docker`
 
 ### Starting a Game
 
