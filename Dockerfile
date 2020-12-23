@@ -2,6 +2,8 @@ FROM node:lts-alpine3.12
 
 WORKDIR /app
 
+ENV TWB_QUESTION_SERVER=
+
 # Install git
 # bower needs it
 RUN apk --no-cache add git
