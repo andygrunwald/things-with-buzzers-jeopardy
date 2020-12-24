@@ -9,36 +9,81 @@ angular.module('myApp.controllers').
         $scope.data = data.data;
         $scope.game = data.game;
         $scope.scoreHtml = buildScores();
+        $scope.scoreHtmlTop = buildScoresTop();
       }
     })
 
     function buildScores () {
-      return '<div class="row">' +
-          '<div class="col-md-4 text-center">' +
-            '<div class="player-name">' +
-              (($scope.game.player_1 && $scope.game.player_1.name) || 'Player 1') +
-            '</div><div class="player-score">' +
-              currencyFilter(($scope.game.player_1 && $scope.game.player_1.score) || 0, '$', 0) +
-            '</div>' +
-          '</div>' +
-          '<div class="col-md-4 text-center">' +
-            '<div class="player-name">' +
-              (($scope.game.player_2 && $scope.game.player_2.name) || 'Player 2') +
-            '</div><div class="player-score">' +
-              currencyFilter(($scope.game.player_2 && $scope.game.player_2.score) || 0, '$', 0) +
-            '</div>' +
-          '</div>' +
-          '<div class="col-md-4 text-center">' +
-            '<div class="player-name">' +
-              (($scope.game.player_3 && $scope.game.player_3.name) || 'Player 3') +
-            '</div><div class="player-score">' +
-              currencyFilter(($scope.game.player_3 && $scope.game.player_3.score) || 0, '$', 0) +
-            '</div>' +
+
+      var count = 3;
+      var width = 4;
+      var buffer = "";
+
+      if($scope.game.player_4 && $scope.game.player_4.name) {
+        count = 3;
+        width = 4;
+
+        if($scope.game.player_5 && $scope.game.player_5.name) {
+          count = 5;
+          width = 2;
+          buffer = '<div class="col-md-1 text-center"> </div>'
+        }
+      }
+
+      var returnValue = '<div class="row">' + buffer;
+
+      for(var i = 1; i <= count; i++) {
+        var key = "player_" + i;
+        returnValue += '<div class="col-md-' + width + ' text-center">' +
+          '<div class="player-name">' +
+            (($scope.game[key] && $scope.game[key].name) || 'Player ' + i) +
+          '</div><div class="player-score">' +
+            currencyFilter(($scope.game[key] && $scope.game[key].score) || 0, '$', 0) +
           '</div>' +
         '</div>';
+      }
+
+      returnValue +=  '</div>';
+
+      return returnValue;
+    }
+
+    function buildScoresTop() {
+
+      var count = 3;
+      var width = 4;
+      var buffer = "";
+
+      // Check to see if there are players 4 and 5 there and process accordingly
+      if($scope.game.player_4 && $scope.game.player_4.name) {
+        count = 3;
+        width = 4;
+
+        if($scope.game.player_5 && $scope.game.player_5.name) {
+          count = 5;
+          width = 2;
+          buffer = '<div class="col-md-1 text-center"> </div>'
+        }
+      }
+
+      var returnValue = '<div class="row">' + buffer;
+
+      for(var i = 1; i <= count; i++) {
+        var key = "player_" + i;
+        returnValue += '<div class="col-md-' + width + ' text-center">' +
+            (($scope.game[key] && $scope.game[key].name) || 'Player ' + i) + ": " + currencyFilter(($scope.game[key] && $scope.game[key].score) || 0, '$', 0) +
+        '</div>';
+      }
+
+      returnValue +=  '</div>';
+
+      return returnValue;
     }
 
     socket.on('round:start', function (data) {
+
+      $scope.scoreHtmlTop = buildScoresTop();
+
       if (modalInstance) {
         modalInstance.close();
       }
@@ -76,7 +121,8 @@ angular.module('myApp.controllers').
               id: id,
               clue: $scope.data[id],
               game: $scope.game,
-              scoreHtml: buildScores()
+              scoreHtml: buildScores(),
+              scoreHtmlTop: buildScoresTop()
             };
           }
         }
@@ -92,6 +138,7 @@ angular.module('myApp.controllers').
       if (modalInstance) {
         modalInstance.close();
       }
+      $scope.scoreHtmlTop = buildScoresTop();
     });
 
     // Build websocket URL
