@@ -82,14 +82,14 @@ angular.module('myApp.controllers').
 
     socket.on('round:start', function (data) {
 
+      $scope.data = data.data;
+      $scope.game = data.game;
+
       $scope.scoreHtmlTop = buildScoresTop();
 
       if (modalInstance) {
         modalInstance.close();
       }
-
-      $scope.data = data.data;
-      $scope.game = data.game;
 
       if (data.game.round === 'DJ') {
         openModal();
