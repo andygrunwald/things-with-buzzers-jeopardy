@@ -14,14 +14,13 @@ angular.module('myApp.controllers').
     })
 
     function buildScores () {
-
       var count = 3;
       var width = 4;
       var buffer = "";
 
       if($scope.game.player_4 && $scope.game.player_4.name) {
-        count = 3;
-        width = 4;
+        count = 4;
+        width = 3;
 
         if($scope.game.player_5 && $scope.game.player_5.name) {
           count = 5;
@@ -49,15 +48,14 @@ angular.module('myApp.controllers').
     }
 
     function buildScoresTop() {
-
       var count = 3;
       var width = 4;
       var buffer = "";
 
       // Check to see if there are players 4 and 5 there and process accordingly
       if($scope.game.player_4 && $scope.game.player_4.name) {
-        count = 3;
-        width = 4;
+        count = 4;
+        width = 3;
 
         if($scope.game.player_5 && $scope.game.player_5.name) {
           count = 5;
