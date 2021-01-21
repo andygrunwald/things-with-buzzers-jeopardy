@@ -14,6 +14,6 @@
     "method-override": "^2.3.5",
     "morgan": "^1.6.1",
     "request": "^2.60.0",
-    "socket.io": "~1.7.4"
+    "socket.io": "~2.4.0"
   }
 }
