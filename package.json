@@ -9,7 +9,7 @@
     "express": "^4.17.1",
     "http-proxy": "^1.18.1",
     "jade": "~1.11.0",
-    "jsonfile": "^2.2.1",
+    "jsonfile": "^6.1.0",
     "lodash": "^4.17.19",
     "method-override": "^2.3.5",
     "morgan": "^1.6.1",
