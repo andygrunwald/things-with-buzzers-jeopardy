@@ -10,7 +10,7 @@
     "http-proxy": "^1.18.1",
     "jade": "~1.11.0",
     "jsonfile": "^2.2.1",
-    "lodash": "^4.17.19",
+    "lodash": "^4.17.21",
     "method-override": "^2.3.5",
     "morgan": "^1.6.1",
     "request": "^2.60.0",
