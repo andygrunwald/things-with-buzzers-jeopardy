@@ -6,7 +6,7 @@
     "body-parser": "^1.13.3",
     "cheerio": "^0.22.0",
     "errorhandler": "^1.4.2",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "http-proxy": "^1.18.1",
     "jade": "~1.11.0",
     "jsonfile": "^2.2.1",
